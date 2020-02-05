@@ -21,7 +21,6 @@ namespace BugTracker.Models
     }
     public class Ticket
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public Status Status { get; set; }
@@ -31,7 +30,7 @@ namespace BugTracker.Models
         public DateTime CreatedDateTime { get; set; }
         public DateTime UpdatedDateTime { get; set; }
 
-        //public Project Project { get; set; }
+        public Project Project { get; set; }
         public User Submitter { get; set; }
         public User Developer { get; set; }
         public ICollection<Attachment> Attachments { get; set; }
