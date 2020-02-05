@@ -25,7 +25,7 @@ namespace BugTracker.Data
             var comments = new List<Comment>();
             var attachments = new List<Attachment>();
 
-            Project project = new Project {Title = "project", Description = "description", Users = users, Tickets = tickets};
+            Project project = new Project {Id= 1, Title = "project", Description = "description", Tickets = tickets};
 
             projects.Add(project);
 
@@ -34,27 +34,22 @@ namespace BugTracker.Data
             User Greg = new User {Name = "Greg", Email = "greg@gmail.com", Id = 3, Projects = projects, Role = Role.Developer};
             User Robert =new User {Name = "Robert", Email = "robert@gmail.com", Id = 4, Projects = projects, Role = Role.Submitter};
 
-            project.Users.Add(Andrei);
-            project.Users.Add(Stefan);
-            project.Users.Add(Greg);
-            project.Users.Add(Robert);
-
             Ticket ticket = new Ticket
             {
                 Title = "ticket", Description = "description", Developer = Greg,
-                Priority = Priority.High, Project = project,
+                Priority = Priority.High,
                 Status = Status.InProgress, Submitter = Robert,
                 Type = Type.Bugs, CreatedDateTime = DateTime.Now,
-                UpdatedDateTime = DateTime.Now, Comments = comments, Attachments = attachments
+                UpdatedDateTime = DateTime.Now, Comments = comments, Attachments = attachments, Id=1
             };
 
             project.Tickets.Add(ticket);
 
-            Comment comment = new Comment{Commenter = Andrei, CreatedDateTime = DateTime.Now, Message = "make better"};
+            Comment comment = new Comment{Id=1, Commenter = Andrei, CreatedDateTime = DateTime.Now, Message = "make better"};
 
             ticket.Comments.Add(comment);
 
-            Attachment attachment = new Attachment{CreatedDateTime = DateTime.Now, Notes = "null file", Uploader = Andrei};
+            Attachment attachment = new Attachment{Id =1, CreatedDateTime = DateTime.Now, Notes = "null file", Uploader = Andrei};
 
             ticket.Attachments.Add(attachment);
 
