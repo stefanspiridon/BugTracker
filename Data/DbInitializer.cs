@@ -25,36 +25,27 @@ namespace BugTracker.Data
             var comments = new List<Comment>();
             var attachments = new List<Attachment>();
 
-            Project project = new Project {Title = "project", Description = "description", Tickets = tickets};
+            Project project = new Project {Id= 1, Title = "project", Description = "description"};
 
-            projects.Add(project);
-
-            User Andrei = new User {Name = "Andrei", Email = "andrei@gmail.com", Id = 1, Projects = projects, Role = Role.Admin};
-            User Stefan = new User {Name = "Stefan", Email = "stefan@gmail.com", Id = 2, Projects = projects, Role = Role.ProjectManager};
-            User Greg = new User {Name = "Greg", Email = "greg@gmail.com", Id = 3, Projects = projects, Role = Role.Developer};
-            User Robert =new User {Name = "Robert", Email = "robert@gmail.com", Id = 4, Projects = projects, Role = Role.Submitter};
+            User Andrei = new User {Name = "Andrei", Email = "andrei@gmail.com", Id = 1, Role = Role.Admin};
+            User Stefan = new User {Name = "Stefan", Email = "stefan@gmail.com", Id = 2, Role = Role.ProjectManager};
+            User Greg = new User {Name = "Greg", Email = "greg@gmail.com", Id = 3, Role = Role.Developer};
+            User Robert =new User {Name = "Robert", Email = "robert@gmail.com", Id = 4, Role = Role.Submitter};
 
 
             Ticket ticket = new Ticket
             {
-                Title = "ticket", Description = "description", Developer = Greg,
+                Id = 1, Title = "ticket", Description = "description",
                 Priority = Priority.High,
-                Status = Status.InProgress, Submitter = Robert,
+                Status = Status.InProgress,
                 Type = Type.Bugs, CreatedDateTime = DateTime.Now,
-                UpdatedDateTime = DateTime.Now, Comments = comments, Attachments = attachments
+                UpdatedDateTime = DateTime.Now
             };
 
-            project.Tickets.Add(ticket);
+            Comment comment = new Comment{ Id = 1, CreatedDateTime = DateTime.Now, Message = "make better"};
 
-            Comment comment = new Comment{Commenter = Andrei, CreatedDateTime = DateTime.Now, Message = "make better"};
+            Attachment attachment = new Attachment{ Id = 1, CreatedDateTime = DateTime.Now, Notes = "null file"};
 
-            ticket.Comments.Add(comment);
-
-            Attachment attachment = new Attachment{CreatedDateTime = DateTime.Now, Notes = "null file", Uploader = Andrei};
-
-            ticket.Attachments.Add(attachment);
-
-            
             users.Add(Andrei);
             users.Add(Stefan);
             users.Add(Greg);
@@ -62,6 +53,7 @@ namespace BugTracker.Data
             tickets.Add(ticket);
             comments.Add(comment);
             attachments.Add(attachment);
+            projects.Add(project);
 
             foreach ( User u in users )
             {

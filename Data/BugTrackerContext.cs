@@ -18,5 +18,14 @@ namespace BugTracker.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Project>().ToTable("Project");
+            modelBuilder.Entity<Ticket>().ToTable("Ticket");
+            modelBuilder.Entity<Comment>().ToTable("Comment");
+            modelBuilder.Entity<Attachment>().ToTable("Attachment");
+        }*/
     }
 }

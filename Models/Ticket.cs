@@ -28,13 +28,13 @@ namespace BugTracker.Models
         public Priority Priority { get; set; }
         public Type Type { get; set; }
 
-        public DateTime CreatedDateTime { get; set; }
-        public DateTime UpdatedDateTime { get; set; }
+        public DateTime? CreatedDateTime { get; set; }
+        public DateTime? UpdatedDateTime { get; set; }
 
         //public Project Project { get; set; }
-        public User Submitter { get; set; }
-        public User Developer { get; set; }
-        public ICollection<Attachment> Attachments { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public User? Submitter { get; set; }
+        public User? Developer { get; set; }
+        public ICollection<Attachment>? Attachments { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

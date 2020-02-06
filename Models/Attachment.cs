@@ -12,8 +12,8 @@ namespace BugTracker.Models
         public int Id { get; set; }
         public string Notes { get; set; }
 
-        public DateTime CreatedDateTime { get; set; }
+        public DateTime? CreatedDateTime { get; set; }
         //public IFormFile? File { get; set; }
-        public User Uploader { get; set; }
+        public User? Uploader { get; set; }
     }
 }

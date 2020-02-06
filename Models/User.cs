@@ -17,7 +17,7 @@ namespace BugTracker.Models
         public Role Role { get; set; }
 
 
-        public ICollection<Project> Projects { get; set; }
+        public ICollection<Project>? Projects { get; set; }
 
     }
 
