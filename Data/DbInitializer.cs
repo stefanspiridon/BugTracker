@@ -25,7 +25,7 @@ namespace BugTracker.Data
             var comments = new List<Comment>();
             var attachments = new List<Attachment>();
 
-            Project project = new Project {Title = "project", Description = "description", Users = users, Tickets = tickets};
+            Project project = new Project {Title = "project", Description = "description", Tickets = tickets};
 
             projects.Add(project);
 
@@ -34,15 +34,11 @@ namespace BugTracker.Data
             User Greg = new User {Name = "Greg", Email = "greg@gmail.com", Id = 3, Projects = projects, Role = Role.Developer};
             User Robert =new User {Name = "Robert", Email = "robert@gmail.com", Id = 4, Projects = projects, Role = Role.Submitter};
 
-            project.Users.Add(Andrei);
-            project.Users.Add(Stefan);
-            project.Users.Add(Greg);
-            project.Users.Add(Robert);
 
             Ticket ticket = new Ticket
             {
                 Title = "ticket", Description = "description", Developer = Greg,
-                Priority = Priority.High, Project = project,
+                Priority = Priority.High,
                 Status = Status.InProgress, Submitter = Robert,
                 Type = Type.Bugs, CreatedDateTime = DateTime.Now,
                 UpdatedDateTime = DateTime.Now, Comments = comments, Attachments = attachments
