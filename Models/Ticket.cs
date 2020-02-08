@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,6 +23,8 @@ namespace BugTracker.Models
     }
     public class Ticket
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -28,13 +32,13 @@ namespace BugTracker.Models
         public Priority Priority { get; set; }
         public Type Type { get; set; }
 
-        public DateTime? CreatedDateTime { get; set; }
-        public DateTime? UpdatedDateTime { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+        public DateTime UpdatedDateTime { get; set; }
 
         //public Project Project { get; set; }
-        public User? Submitter { get; set; }
-        public User? Developer { get; set; }
-        public ICollection<Attachment>? Attachments { get; set; }
-        public ICollection<Comment>? Comments { get; set; }
+        public User Submitter { get; set; }
+        public User Developer { get; set; }
+        public ICollection<Attachment> Attachments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }
