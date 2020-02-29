@@ -12,6 +12,7 @@ namespace BugTracker.Data
     {
         public static void Initialize(BugTrackerContext context)
         {
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             if (context.Users.Any())
@@ -27,7 +28,7 @@ namespace BugTracker.Data
 
             Project project = new Project {Id= 1, Title = "project", Description = "description"};
 
-            User Andrei = new User {Name = "Andrei", Email = "andrei@gmail.com", Id = 1, Role = Role.Admin};
+            User Andrei = new User {Name = "Andrei", Email = "andrei@gmail.com", Id = 1, Role = Role.Admin };
             User Stefan = new User {Name = "Stefan", Email = "stefan@gmail.com", Id = 2, Role = Role.ProjectManager};
             User Greg = new User {Name = "Greg", Email = "greg@gmail.com", Id = 3, Role = Role.Developer};
             User Robert =new User {Name = "Robert", Email = "robert@gmail.com", Id = 4, Role = Role.Submitter};
@@ -54,6 +55,8 @@ namespace BugTracker.Data
             comments.Add(comment);
             attachments.Add(attachment);
             projects.Add(project);
+
+            //Andrei.Projects = projects;
 
             foreach ( User u in users )
             {

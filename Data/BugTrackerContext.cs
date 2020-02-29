@@ -20,6 +20,17 @@ namespace BugTracker.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
 
+        /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<User>()
+                .Property(p => p.Role)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (Role)Enum.Parse(typeof(Role), v));
+        }*/
+
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /*modelBuilder.Entity<User>().ToTable("User");
